@@ -13,6 +13,7 @@ p {
   font-size: 25px;
   margin: 0;
   text-align: center;
+  max-width: 60vw;
 }
 
 .comic-container {
@@ -70,6 +71,7 @@ img.scene {
   float: left;
   position: relative;
   z-index: -2;
+  margin-bottom: 1vh;
 }
 
 .scene-container {
@@ -111,32 +113,30 @@ p.instruction {
   background: none;
 }
 
-.hand-container {
-  position: absolute;
-  width: 30%;
-  top: 0%;
-  left: 2%;
-  border: black;
-  /* overflow: hidden; */
-}
-
 .mom-hand {
   position: absolute;
-  /* top: -5%;
-  left: 2%; */
+  top: -3%;
+  left: 20%;
   width: 13%;
 }
 
 .dad-hand {
   position: absolute;
-  top: -5%;
+  top: -3%;
   left: 20%;
-  width: 15%;
+  width: 13%;
 }
 
 .ben-hand {
   position: absolute;
-  top: -5%;
+  top: -3%;
   left: 20%;
-  width: 15%;
+  width: 13%;
+}
+
+.benny-food {
+  position: absolute;
+  top: 7%;
+  left: 25%;
+  width: 8%;
 }

@@ -53,11 +53,18 @@
           </div>
           <div class="instruction-container">
             <p class="instruction-scene-2">
-              Looks like Benny is hungry. 
-            </p>
-            <p class="instruction-scene-2">
+              Looks like Benny is hungry.
+             <br>
               Click on the button to choose who’s gonna
               feed Benny first.
+            </p>
+            <p class="instruction2-scene-2">
+              After 5 minutes Benny still seems hungry.
+              Click on the button to choose who’s gonna feed Benny next.
+            </p>
+            <p class="instruction3-scene-2">
+              After 10 minutes Benny still seems hungry.
+              Click on the button to choose who’s gonna feed Benny next.
             </p>
           </div>
           <div class="img-container">
@@ -67,6 +74,7 @@
               <img class="mom-hand" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FMAMMA.svg?v=1634144066183">
               <img class="dad-hand" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FDAD.svg?v=1634144102697">
               <img class="ben-hand" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FBENJAMIN.svg?v=1634144089315">
+              <img class="benny-food" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FFOOD.svg?v=1634144079857">
             </div>
           </div>
           <div class="story-container">
@@ -105,10 +113,15 @@
           </div>
           <div class="instruction-container">
             <p class="instruction-scene-4">
-              Looks like Benny is hungry again from all that swimming and moving.
+              Looks like Benny is hungry again from all that swimming and moving. Click on the button to choose who’s gonna feed Benny first.
             </p>
-            <p class="instruction-scene-4">
-              Click on the button to choose who’s gonna feed Benny first.“
+            <p class="instruction2-scene-4">
+              After 5 minutes Benny still seems hungry. Did his stomach grow as well?
+              Click on the button to choose who’s gonna feed Benny next.
+            </p>
+            <p class="instruction3-scene-4">
+              After 10 minutes Benny still seems hungry. What a hungry fish he is.
+              Click on the button to choose who’s gonna feed Benny next.
             </p>
           </div>
           <div class="img-container">
@@ -117,6 +130,7 @@
             <img class="mom-hand" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FMAMMA.svg?v=1634144066183">
             <img class="dad-hand" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FDAD.svg?v=1634144102697">
             <img class="ben-hand" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FBENJAMIN.svg?v=1634144089315">
+            <img class="benny-food" src="https://cdn.glitch.me/b821ea2a-77cd-40f3-b3e2-11469c5416e2%2FFOOD.svg?v=1634144079857">
           </div>
           <div class="story-container">
             <p class="story-scene-4">
@@ -177,10 +191,15 @@
         var counter_scene_2 = 0;
         var counter_scene_4 = 0;
         $(".story-scene-2").hide();
+        $(".instruction2-scene-2").hide();
+        $(".instruction3-scene-2").hide();
         $(".story-scene-4").hide();
+        $(".instruction2-scene-4").hide();
+        $(".instruction3-scene-4").hide();
         $(".mom-hand").hide();
         $(".dad-hand").hide();
         $(".ben-hand").hide();
+        $(".benny-food").hide();
 
         // Scene 2 : resize benny with the button click
         $(".button-scene-2").click(function(){
@@ -190,8 +209,25 @@
             left: '-=2%',
             width: '+=3%'
           });
+          if (counter_scene_2 == 1) { // if button click reaches 1
+            $(".instruction-scene-2").hide();
+            $(".instruction2-scene-2").show();
+            $(".instruction3-scene-2").hide();
+            $(".story-scene-2").hide();
+          }
+
+            if (counter_scene_2 == 2) { // if button click reaches 2
+              $(".instruction-scene-2").hide();
+              $(".instruction2-scene-2").hide();
+              $(".instruction3-scene-2").show();
+              $(".story-scene-2").hide();
+            }
+
+
           if (counter_scene_2 == 3) { // if button click reaches 3
             $(".instruction-scene-2").hide();
+            $(".instruction2-scene-2").hide();
+            $(".instruction3-scene-2").hide();
             $(".button-scene-2").hide();
             $(".story-scene-2").show();
           }
@@ -205,8 +241,25 @@
             left: '-=2%',
             width: '+=5%'
           });
+
+          if (counter_scene_4 == 1) { // if button click reaches 1
+            $(".instruction-scene-4").hide();
+            $(".instruction2-scene-4").show();
+            $(".instruction3-scene-4").hide();
+            $(".story-scene-4").hide();
+          }
+
+            if (counter_scene_4 == 2) { // if button click reaches 2
+              $(".instruction-scene-4").hide();
+              $(".instruction2-scene-4").hide();
+              $(".instruction3-scene-4").show();
+              $(".story-scene-2").hide();
+            }
+
           if (counter_scene_4 == 3) { // if button click reaches 3
             $(".instruction-scene-4").hide();
+            $(".instruction2-scene-4").hide();
+            $(".instruction3-scene-4").hide();
             $(".button-scene-4").hide();
             $(".story-scene-4").show();
           }
@@ -214,9 +267,40 @@
 
         $(".button-mom").click(function(){
           $(".mom-hand").show();
-          $(".mom-hand").animate({
-            top: '-5%',
-            left: '20%'
+          $(".mom-hand").fadeOut(1000);
+          $(".benny-food").show();
+          $(".benny-food").animate({
+            top: '15%',
+          });
+          $(".benny-food").fadeOut(1000);
+          $(".benny-food").animate({
+            top: '7%',
+          });
+        });
+
+        $(".button-dad").click(function(){
+          $(".dad-hand").show();
+          $(".dad-hand").fadeOut(1000);
+          $(".benny-food").show();
+          $(".benny-food").animate({
+            top: '15%',
+          });
+          $(".benny-food").fadeOut(1000);
+          $(".benny-food").animate({
+            top: '7%',
+          });
+        });
+
+        $(".button-ben").click(function(){
+          $(".ben-hand").show();
+          $(".ben-hand").fadeOut(1000);
+          $(".benny-food").show();
+          $(".benny-food").animate({
+            top: '15%',
+          });
+          $(".benny-food").fadeOut(1000);
+          $(".benny-food").animate({
+            top: '7%',
           });
         });
 
@@ -224,14 +308,14 @@
           $("#benny-scene-3").animate({
             top: '15%',
             left: '15%'
-          });
+          }, 1200);
         });
         
         $("#scene5").hover(function(){
           $("#benny-scene-5").animate({
             bottom: '-500%',
             opacity: '0'
-          });
+          }, 2000);
         });
       });
 
